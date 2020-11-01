@@ -44,13 +44,13 @@ public class Client {
 
         } catch (Exception e) {
             System.out.println("Illegal Port Number");
-            System.out.println("Client exception: " + e);
+            e.printStackTrace();
         }
     }
 
     public void run(String[] argv) {
         try {
-            MeetingInterface meeting = (MeetingInterface) Naming.lookup("//" + serverName + ":" + port + "/MeetingService");
+            meeting = (MeetingInterface) Naming.lookup("//" + serverName + ":" + port + "/MeetingService");
             // 调用远程方法
             System.out.println(meeting.echo("Good morning"));
 
@@ -104,7 +104,7 @@ public class Client {
             System.out.println(result);
             waiting();
         } catch (Exception e) {
-            System.out.println("Client exception: " + e);
+            e.printStackTrace();
         }
     }
 

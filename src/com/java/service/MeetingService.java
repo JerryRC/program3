@@ -90,9 +90,9 @@ public class MeetingService extends UnicastRemoteObject implements MeetingInterf
         for (User u : new User[]{creator, other}) {
             for (Meeting m : u.getMeetingList()) {
                 //noinspection ComparatorResultComparison
-                if (meeting.compareTo(m) != 2 || meeting.compareTo(m) != -2) {
+                if (meeting.compareTo(m) != 2 && meeting.compareTo(m) != -2) {
                     lastID--;
-                    return "There's a conflict";
+                    return "There's a time conflict";
                 }
             }
         }

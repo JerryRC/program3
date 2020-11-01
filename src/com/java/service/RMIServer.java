@@ -13,7 +13,7 @@ public class RMIServer {
             MeetingInterface meetingService = new MeetingService();
 
             // 把实例注册到 “另一台” RMI注册服务器上，命名为meetingService
-            Naming.rebind("//127.0.0.1:1099/MeetingService", meetingService);
+            Naming.rebind("//" + args[0] + ":1099/MeetingService", meetingService);
 
             System.out.println("MeetingService is ready.");
         } catch (Exception e) {
